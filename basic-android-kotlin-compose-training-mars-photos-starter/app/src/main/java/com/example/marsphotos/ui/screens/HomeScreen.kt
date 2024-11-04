@@ -43,7 +43,7 @@ fun HomeScreen(
 @Composable
 fun ResultScreen(photos: String, modifier: Modifier = Modifier) {
     Box(
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.BottomEnd,
         modifier = modifier
     ) {
         Text(text = photos)

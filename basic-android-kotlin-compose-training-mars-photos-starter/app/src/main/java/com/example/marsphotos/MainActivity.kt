@@ -22,8 +22,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.marsphotos.ui.MarsPhotosApp
+import com.example.marsphotos.ui.screens.ResultScreen
 import com.example.marsphotos.ui.theme.MarsPhotosTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,5 +43,13 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ResultScreenPreview() {
+    MarsPhotosTheme {
+        MarsPhotosApp()
     }
 }
