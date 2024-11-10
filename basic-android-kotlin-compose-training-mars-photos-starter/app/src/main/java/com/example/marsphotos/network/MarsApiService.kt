@@ -1,5 +1,7 @@
 package com.example.marsphotos.network
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
@@ -31,3 +33,10 @@ object MarsApi {
         retrofit.create(MarsApiService::class.java)
     }
 }
+
+@Serializable
+data class MarsPhoto(
+    val id: String,
+    @SerialName(value = "img_src")
+    val imgSrc: String
+)
