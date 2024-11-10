@@ -1,9 +1,11 @@
 package com.example.marsphotos.network
 
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL =
@@ -13,7 +15,7 @@ private const val BASE_URL =
  * Use the Retrofit builder to build a retrofit object using a kotlinx.serialization converter
  */
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(ScalarsConverterFactory.create())
+    .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
     .baseUrl(BASE_URL)
     .build()
 
@@ -22,7 +24,7 @@ private val retrofit = Retrofit.Builder()
  */
 interface MarsApiService {
     @GET("photos")
-    suspend fun getPhotos(): String
+    suspend fun getPhotos(): List<MarsPhoto>
 }
 
 /**
